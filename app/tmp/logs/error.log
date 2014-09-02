@@ -2332,3 +2332,150 @@ Stack Trace:
 #2 E:\www\share_down\trunk\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 E:\www\share_down\trunk\index.php(41): require('E:\www\share_do...')
 #4 {main}
+2014-09-01 22:42:39 Error: Fatal Error (1): Call to a member function findByEmail() on a non-object in [E:\www\share_down\trunk\app\Controller\UsersController.php, line 72]
+2014-09-01 22:42:39 Error: [FatalErrorException] Call to a member function findByEmail() on a non-object
+Request URL: /index.php/users/login
+Stack Trace:
+#0 E:\www\share_down\trunk\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'E:\www\share_do...', 72)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'E:\www\share_do...', 72, Array)
+#2 E:\www\share_down\trunk\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'E:\www\share_do...', 72, Array)
+#3 E:\www\share_down\trunk\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-09-01 22:42:46 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Counter.number' in 'where clause'
+Request URL: /index.php/users/login
+Stack Trace:
+#0 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Vip`.`i...', Array)
+#2 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Vip`.`i...', Array, Array)
+#3 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Vip`.`i...', false)
+#4 E:\www\share_down\trunk\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Vip), Array)
+#5 E:\www\share_down\trunk\lib\Cake\Model\Model.php(2877): Model->_readDataSource('first', Array)
+#6 E:\www\share_down\trunk\app\Model\AppModel.php(68): Model->find('first', Array)
+#7 E:\www\share_down\trunk\app\Model\AppModel.php(102): AppModel->findFromSlave('first', Array)
+#8 E:\www\share_down\trunk\app\Controller\UsersController.php(97): AppModel->find('first', Array)
+#9 [internal function]: UsersController->login()
+#10 E:\www\share_down\trunk\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#11 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#12 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#13 E:\www\share_down\trunk\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 E:\www\share_down\trunk\index.php(41): require('E:\www\share_do...')
+#15 {main}
+2014-09-01 22:43:04 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Counter.number' in 'where clause'
+Request URL: /index.php/users/login
+Stack Trace:
+#0 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Vip`.`i...', Array)
+#2 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Vip`.`i...', Array, Array)
+#3 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Vip`.`i...', false)
+#4 E:\www\share_down\trunk\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Vip), Array)
+#5 E:\www\share_down\trunk\lib\Cake\Model\Model.php(2877): Model->_readDataSource('first', Array)
+#6 E:\www\share_down\trunk\app\Model\AppModel.php(68): Model->find('first', Array)
+#7 E:\www\share_down\trunk\app\Model\AppModel.php(102): AppModel->findFromSlave('first', Array)
+#8 E:\www\share_down\trunk\app\Controller\UsersController.php(98): AppModel->find('first', Array)
+#9 [internal function]: UsersController->login()
+#10 E:\www\share_down\trunk\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#11 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#12 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#13 E:\www\share_down\trunk\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 E:\www\share_down\trunk\index.php(41): require('E:\www\share_do...')
+#15 {main}
+2014-09-01 22:43:25 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Counter.number' in 'where clause'
+Request URL: /index.php/users/login
+Stack Trace:
+#0 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Vip`.`i...', Array)
+#2 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Vip`.`i...', Array, Array)
+#3 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Vip`.`i...', false)
+#4 E:\www\share_down\trunk\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Vip), Array)
+#5 E:\www\share_down\trunk\lib\Cake\Model\Model.php(2877): Model->_readDataSource('first', Array)
+#6 E:\www\share_down\trunk\app\Model\AppModel.php(68): Model->find('first', Array)
+#7 E:\www\share_down\trunk\app\Model\AppModel.php(102): AppModel->findFromSlave('first', Array)
+#8 E:\www\share_down\trunk\app\Controller\UsersController.php(98): AppModel->find('first', Array)
+#9 [internal function]: UsersController->login()
+#10 E:\www\share_down\trunk\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#11 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#12 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#13 E:\www\share_down\trunk\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 E:\www\share_down\trunk\index.php(41): require('E:\www\share_do...')
+#15 {main}
+2014-09-01 22:43:25 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Counter.number' in 'where clause'
+Request URL: /index.php/users/login
+Stack Trace:
+#0 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Vip`.`i...', Array)
+#2 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Vip`.`i...', Array, Array)
+#3 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Vip`.`i...', false)
+#4 E:\www\share_down\trunk\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Vip), Array)
+#5 E:\www\share_down\trunk\lib\Cake\Model\Model.php(2877): Model->_readDataSource('first', Array)
+#6 E:\www\share_down\trunk\app\Model\AppModel.php(68): Model->find('first', Array)
+#7 E:\www\share_down\trunk\app\Model\AppModel.php(102): AppModel->findFromSlave('first', Array)
+#8 E:\www\share_down\trunk\app\Controller\UsersController.php(98): AppModel->find('first', Array)
+#9 [internal function]: UsersController->login()
+#10 E:\www\share_down\trunk\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#11 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#12 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#13 E:\www\share_down\trunk\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 E:\www\share_down\trunk\index.php(41): require('E:\www\share_do...')
+#15 {main}
+2014-09-01 22:43:27 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Counter.number' in 'where clause'
+Request URL: /index.php/users/login
+Stack Trace:
+#0 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Vip`.`i...', Array)
+#2 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Vip`.`i...', Array, Array)
+#3 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Vip`.`i...', false)
+#4 E:\www\share_down\trunk\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Vip), Array)
+#5 E:\www\share_down\trunk\lib\Cake\Model\Model.php(2877): Model->_readDataSource('first', Array)
+#6 E:\www\share_down\trunk\app\Model\AppModel.php(68): Model->find('first', Array)
+#7 E:\www\share_down\trunk\app\Model\AppModel.php(102): AppModel->findFromSlave('first', Array)
+#8 E:\www\share_down\trunk\app\Controller\UsersController.php(98): AppModel->find('first', Array)
+#9 [internal function]: UsersController->login()
+#10 E:\www\share_down\trunk\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#11 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#12 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#13 E:\www\share_down\trunk\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 E:\www\share_down\trunk\index.php(41): require('E:\www\share_do...')
+#15 {main}
+2014-09-01 22:43:31 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Counter.number' in 'where clause'
+Request URL: /index.php/users/login
+Stack Trace:
+#0 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('SELECT `Vip`.`i...', Array)
+#2 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('SELECT `Vip`.`i...', Array, Array)
+#3 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(1106): DboSource->fetchAll('SELECT `Vip`.`i...', false)
+#4 E:\www\share_down\trunk\lib\Cake\Model\Model.php(2905): DboSource->read(Object(Vip), Array)
+#5 E:\www\share_down\trunk\lib\Cake\Model\Model.php(2877): Model->_readDataSource('first', Array)
+#6 E:\www\share_down\trunk\app\Model\AppModel.php(68): Model->find('first', Array)
+#7 E:\www\share_down\trunk\app\Model\AppModel.php(102): AppModel->findFromSlave('first', Array)
+#8 E:\www\share_down\trunk\app\Controller\UsersController.php(98): AppModel->find('first', Array)
+#9 [internal function]: UsersController->login()
+#10 E:\www\share_down\trunk\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#11 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#12 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#13 E:\www\share_down\trunk\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 E:\www\share_down\trunk\index.php(41): require('E:\www\share_do...')
+#15 {main}
+2014-09-01 23:02:13 Error: [MissingViewException] View file "E:\www\share_down\trunk\app\View\Users\captcha.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'E:\\www\\share_down\\trunk\\app\\View\\Users\\captcha.ctp',
+)
+Request URL: /index.php/users/captcha
+Stack Trace:
+#0 E:\www\share_down\trunk\lib\Cake\View\View.php(468): View->_getViewFileName(NULL)
+#1 E:\www\share_down\trunk\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(198): Controller->render()
+#3 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 E:\www\share_down\trunk\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 E:\www\share_down\trunk\index.php(41): require('E:\www\share_do...')
+#6 {main}
+2014-09-01 23:10:59 Error: Fatal Error (1): Call to a member function findByEmail() on a non-object in [E:\www\share_down\trunk\app\Controller\UsersController.php, line 88]
+2014-09-01 23:10:59 Error: [FatalErrorException] Call to a member function findByEmail() on a non-object
+Request URL: /index.php/Users/login
+Stack Trace:
+#0 E:\www\share_down\trunk\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'E:\www\share_do...', 88)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'E:\www\share_do...', 88, Array)
+#2 E:\www\share_down\trunk\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'E:\www\share_do...', 88, Array)
+#3 E:\www\share_down\trunk\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

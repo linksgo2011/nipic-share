@@ -10,26 +10,10 @@ Target Server Type    : MYSQL
 Target Server Version : 50520
 File Encoding         : 65001
 
-Date: 2014-08-31 23:47:34
+Date: 2014-09-02 08:01:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
-
--- ----------------------------
--- Table structure for `counter`
--- ----------------------------
-DROP TABLE IF EXISTS `counter`;
-CREATE TABLE `counter` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `date` date NOT NULL,
-  `number` int(11) NOT NULL DEFAULT '0',
-  `vip_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of counter
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for `depots`
@@ -89,7 +73,7 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('3', 'test2@qq.com', 'test2@qq.com', 'test2@qq.com', 'user', '1386429404', '1386429404', '0', '', '0', '0000-00-00 00:00:00', '0');
+INSERT INTO `users` VALUES ('3', 'test2@qq.com', 'test2@qq.com', '123456', 'user', '1386429404', '1386429404', '0', '', '0', '0000-00-00 00:00:00', '0');
 INSERT INTO `users` VALUES ('11', '1203778432@qq.com', '123456', '123456', 'user', '1402668891', '1402668891', '12314123', '123', '0', '0000-00-00 00:00:00', '0');
 INSERT INTO `users` VALUES ('12', 'test9001@qq.com', '林', '123456', 'admin', '1409491479', '0', '123456', '123456', '0', '0000-00-00 00:00:00', '0');
 INSERT INTO `users` VALUES ('13', 'admin@qq.com', '林宁', '123456', 'admin', '1409491841', '0', '120377843', '243143124', '0', '2014-09-28 00:00:00', '10');
@@ -104,10 +88,12 @@ CREATE TABLE `vips` (
   `password` varchar(255) NOT NULL,
   `endtime` int(11) NOT NULL,
   `created` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `number` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of vips
 -- ----------------------------
-INSERT INTO `vips` VALUES ('2', 'huaerzb', 'qwe111', '0', '1409495707');
+INSERT INTO `vips` VALUES ('2', 'huaerzb', 'qwe111', '0', '1409495707', '2014-09-01', '10');

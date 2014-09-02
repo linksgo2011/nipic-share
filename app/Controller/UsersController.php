@@ -2,8 +2,9 @@
 class UsersController extends AppController {
 
     public $layout = "admin";
-    public $allow = array('register','login');
+    public $allow = array('register','login','captcha');
     public $prefixLayout = true;
+    public $uses = array('User','Counter','Vip');
 
     public function index() {
         $this->User->recursive = 0;
@@ -58,6 +59,22 @@ class UsersController extends AppController {
 
     public  function login( $action = '/Users/home') {
         $this->layout = "default";
+
+        //寻找可用账号
+        $vip = $this->Vip->find('first',array(
+            'conditions'=>array(
+                "OR"=>array(
+                    'date <'=>date("Y-m-d"),
+                    array(
+                        'number < 20',
+                        'date ='=>date("Y-m-d"),
+                    )
+                )
+            ),
+        ));
+        if (!$vip) {
+            throw new Exception("系统错误,联系管理员！", 1);
+        }
         if ( $this->request->isPost() ) {
             $this->request->data['User']['email'] = trim( $this->request->data['User']['email'] );
             $this->request->data['User']['password'] = trim( $this->request->data['User']['password'] );
@@ -69,25 +86,125 @@ class UsersController extends AppController {
             $this->User->recursive = -1;
             $this->User->cache=false;
             $user = $this->User->findByEmail( $email );
-            if ( $user['User']['password'] == $password ) {
+            if ( $user['User']['password'] != $password ) {
+
+                $this->User->validationErrors = array(
+                    'password' => array( "密码错误" )
+                );
+                $this->warning( '密码错误' );
+                return;          
+
+            }   
+
+            //管理员直接登陆
+            if ($user['User']['role'] == 'admin') {
                 $this->UserAuth->login( $user );
                 $uri = $this->Session->read( UserAuthComponent::originAfterLogin );
-                if ($user['User']['role'] == 'admin') {
-                    $action = "/admin/Users/index";
-                }
+                $action = "/admin/Users/index";
                 if ( !$uri ) {
                     $uri = $action;
                 }
                 CakeSession::delete( 'Message.flash' );
                 $this->Session->delete( UserAuthComponent::originAfterLogin );
                 $this->redirect( $uri );
-            }   
-            $this->User->validationErrors = array(
-                'password' => array( "密码错误" )
-            );
-            $this->warning( '密码错误' );
-            return;
+            }
+
+            // $loginParams为curl模拟登录时post的参数
+            $loginParams['UserName'] = $vip['Vip']['username'];
+            $loginParams['PassWord'] = $vip['Vip']['password'];
+            $loginParams['RememberMe'] = "true";
+
+            $loginParams['VerifyCode'] = $postData['User']['captcha'];
+            $loginParams['backurl'] = "http://user.nipic.com";
+
+            // $cookieFile 为加载验证码时保存的cookie文件名 
+            $cookieFile = WWW_ROOT.'cookie.tmp';
+
+            // $targetUrl curl 提交的目标地址
+            $targetUrl = 'http://login.nipic.com';
+
+            //远程登陆
+            $ch = curl_init($targetUrl);
+            curl_setopt($ch,CURLOPT_COOKIEFILE, $cookieFile); //同时发送Cookie
+            curl_setopt($ch,CURLOPT_COOKIEJAR, $cookieFile); // 把返回来的cookie信息保存在文件中
+            curl_setopt($ch,CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch,CURLOPT_POST, 1);
+            curl_setopt($ch,CURLOPT_POSTFIELDS, $loginParams); //提交查询信息
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION,1);  //是否抓取跳转后的页面
+            $content = curl_exec($ch);
+            curl_close($ch);
+
+            if (strpos($content,"/nibi/index")) {
+
+                //test
+        //http://file564d4.nipic.com/0000-00-00/downvsid.asp?clink=http://file564d4.nipic.com/20140813/Nipic_2160477_32696b40b65db586.zip&ctime=2014/9/1%2023:26:43&ccode=ad23a34fc8c2432e83eb9ac20735eb47&ckind=1&ctout=2014/9/2%202:13:23
+        $loginParams = array('id'=>10791340,'kid'=>4);
+        $ch = curl_init("http://down.nipic.com/ajax/download_go");
+        curl_setopt($ch,CURLOPT_COOKIEFILE, $cookieFile); //同时发送Cookie
+        curl_setopt($ch,CURLOPT_COOKIEJAR, $cookieFile); // 把返回来的cookie信息保存在文件中
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch,CURLOPT_POST, 1);
+        curl_setopt($ch,CURLOPT_POSTFIELDS, $loginParams); //提交查询信息
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION,1);  //是否抓取跳转后的页面
+        $content = curl_exec($ch);
+        curl_close($ch);   
+        pr($content); 
+        $this->_stop(); 
+
+                $this->UserAuth->login( $user );
+                $this->succ("登陆成功!");
+                $this->redirect(array('action'=>'home'));
+            }
+            echo $content;
+            $this->_stop();
         }
+    }
+
+    public function test()
+    {
+        //http://file564d4.nipic.com/0000-00-00/downvsid.asp?clink=http://file564d4.nipic.com/20140813/Nipic_2160477_32696b40b65db586.zip&ctime=2014/9/1%2023:26:43&ccode=ad23a34fc8c2432e83eb9ac20735eb47&ckind=1&ctout=2014/9/2%202:13:23
+        $cookieFile = WWW_ROOT.'cookie.tmp';
+        $loginParams = array('id'=>10791340,'kid'=>4);
+        $ch = curl_init("http://down.nipic.com/ajax/download_go");
+        curl_setopt($ch,CURLOPT_COOKIEJAR, $cookieFile); // 把返回来的cookie信息保存在文件中
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch,CURLOPT_POST, 1);
+        curl_setopt($ch,CURLOPT_POSTFIELDS, $loginParams); //提交查询信息
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION,1);  //是否抓取跳转后的页面
+        $content = curl_exec($ch);
+        curl_close($ch);   
+        pr($content); 
+        $this->_stop(); 
+    }
+
+    /**
+     * 验证码
+     */
+    public function captcha()
+    {
+        header('Content-Type:image/png');
+        $cookieFile = WWW_ROOT.'cookie.tmp';
+        $ch = curl_init("http://login.nipic.com/account/verifycode?r=0.03192671708666017");
+        curl_setopt($ch,CURLOPT_COOKIEJAR, $cookieFile); // 把返回来的cookie信息保存在文件中
+        curl_exec($ch);
+        curl_close($ch);
+        $this->_stop();
+    }
+
+
+    /**
+     * 是否昵图网登陆
+     */
+    public function isOtherLogin()
+    {
+        $cookieFile = WWW_ROOT.'cookie.tmp';
+        $ch = curl_init("http://user.nipic.com/");
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch,CURLOPT_COOKIEJAR, $cookieFile); // 把返回来的cookie信息保存在文件中
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION,1);  //是否抓取跳转后的页面
+        $content = curl_exec($ch);
+        curl_close($ch);
+        return strpos($content,"我的昵图");
     }
 
     public function logout() {
@@ -100,7 +217,6 @@ class UsersController extends AppController {
         $this->layout = "default";
         if($this->request->isPost()){
             $data  = $this->request->data;
-            pr($data);exit();
         }
     }
 
