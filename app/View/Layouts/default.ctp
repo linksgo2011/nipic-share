@@ -17,6 +17,7 @@
 		.red{color:#a00;}
 		.sub{font-size:14px;}
 		img{max-width:100%;}
+		.alert{color:#f60;background:#f1f1f1;border-radius:3px;}
 	</style>
 	<body>
 		<div class="container">
@@ -25,8 +26,8 @@
 		            <li><a href="/">开始</a></li>
 		            <?php if ($user['email']): ?>
 		            <li><a href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'home')) ?>">个人中心</a></li>
-		            <li><a href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'index')) ?>">下载记录</a></li>
-		            <li><a href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'index')) ?>">修改密码</a></li>
+		            <li><a href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'logs')) ?>">下载记录</a></li>
+		            <li><a href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'password')) ?>">修改密码</a></li>
 		            <li><a href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'logout')) ?>">退出</a></a></li>
 		        <?php else: ?>
 		            <li><a href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'login')) ?>">登陆/注册</a></a></li>

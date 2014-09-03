@@ -52,7 +52,7 @@ class VipsController extends AppController {
 	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Vip->create();
-			$this->request->data['Vip']['date'] = date("Y-m-d");
+			$this->request->data['Vip']['today'] = date("Y-m-d");
 			if ($this->Vip->save($this->request->data)) {
 				return $this->flash(__('The vip has been saved.'), array('action' => 'index'));
 			}

@@ -5,19 +5,19 @@
             <p>剩余次数: <span class="label label-info"><?php echo $user['number']; ?></span>     </p>
             <p>
                 <span >注册时间: <span class="label label-info"><?php echo date("Y-m-d",$user['created']); ?></span></span>
-                <span >过期时间: <span class="label label-warning"><?php echo date("Y-m-d",$user['expired']); ?></span></span>
+                <span >过期时间: <span class="label label-warning"><?php echo $user['expired']; ?></span></span>
             </p>
         </div>
         <hr>
     </div>
     <div class="row">
         <h3>下载</h3>
-        <p class="bg-info">填写下载地址如:http://baidu.com</p>
+        <p class="bg-info">填写素材地址如:http://www.nipic.com/show/10845476.html</p>
         <div class="col-md-12">
-            <?php echo $this->Form->create("",array('class'=>'form-inline','role'=>'form')) ?>
+            <?php echo $this->Form->create("",array('class'=>'form-inline','role'=>'form','url'=>'/Users/down','target'=>'_blank')) ?>
               <div class="form-group">
                 <label class="sr-only" for="exampleInputEmail2">文件初始地址:</label>
-                <input style="width:300px;" type="email" class="form-control" id="exampleInputEmail2" placeholder="http://baidu.com">
+                <input style="width:300px;" type="text" class="form-control" name="url" placeholder="http://down.nipic.com/download?id=9161809#showMore">
               </div>
               <button type="submit" class="btn btn-primary">下载</button>
               <?php echo $this->Form->end(); ?>

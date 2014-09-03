@@ -69,7 +69,7 @@
                     </li>
                     
                 </ul>
-                <a class="brand" href="/index.php/admin"><span class="first">Your</span> <span class="second">程序员接单系统</span></a>
+                <a class="brand" href="/index.php/admin"><span class="first">Your</span> <span class="second">昵图网下载器管理面板</span></a>
                 <div class="learfix"></div>
             </div>
         </div>
@@ -88,6 +88,10 @@
                     <ul id="settings-menu" class="nav nav-list collapse in">
                         <li ><a href="/index.php/admin/Vips/index">昵图VIP账号</a></li>
                         <li ><a href="/index.php/admin/Vips/add">添加账号</a></li>
+                    </ul>
+                    <div class="nav-header" data-toggle="collapse" data-target="#settings-menu"><i class="icon-exclamation-sign"></i>下载日志<span class="label label-info">1</span></div>
+                    <ul id="settings-menu" class="nav nav-list collapse in">
+                        <li ><a href="/index.php/admin/Users/logs">下载记录</a></li>
                     </ul>
                 </div>
             </div>
