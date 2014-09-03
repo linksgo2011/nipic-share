@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <h3 class="bg-info">账户信息</h3>
+        <h3 class="bg-info">账户信息(<?php echo $user['email']; ?>)</h3>
         <div class="col-md-12">
             <p>剩余次数: <span class="label label-info"><?php echo $user['number']; ?></span>     </p>
             <p>

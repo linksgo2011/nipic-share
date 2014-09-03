@@ -2641,3 +2641,120 @@ Stack Trace:
 #3 E:\www\share_down\trunk\lib\Cake\Core\App.php(902): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2014-09-03 21:47:07 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] 由于目标计算机积极拒绝，无法连接。
+',
+  'enabled' => true,
+)
+Request URL: /index.php/Users/login
+Stack Trace:
+#0 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(260): Mysql->connect()
+#1 E:\www\share_down\trunk\lib\Cake\Model\ConnectionManager.php(105): DboSource->__construct(Array)
+#2 E:\www\share_down\trunk\lib\Cake\Model\Model.php(3479): ConnectionManager::getDataSource('default')
+#3 E:\www\share_down\trunk\lib\Cake\Model\Model.php(1128): Model->setDataSource('default')
+#4 E:\www\share_down\trunk\lib\Cake\Model\Model.php(3501): Model->setSource('vips')
+#5 E:\www\share_down\trunk\lib\Cake\Model\Model.php(2905): Model->getDataSource()
+#6 E:\www\share_down\trunk\lib\Cake\Model\Model.php(2877): Model->_readDataSource('first', Array)
+#7 E:\www\share_down\trunk\app\Model\AppModel.php(68): Model->find('first', Array)
+#8 E:\www\share_down\trunk\app\Model\AppModel.php(102): AppModel->findFromSlave('first', Array)
+#9 E:\www\share_down\trunk\app\Controller\UsersController.php(74): AppModel->find('first', Array)
+#10 [internal function]: UsersController->login()
+#11 E:\www\share_down\trunk\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#12 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#13 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#14 E:\www\share_down\trunk\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 E:\www\share_down\trunk\index.php(41): require('E:\www\share_do...')
+#16 {main}
+2014-09-03 23:05:36 Error: [MissingControllerException] Controller class AssetsController could not be found.
+Exception Attributes: array (
+  'class' => 'AssetsController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/admin/assets/ico/favicon.ico
+Stack Trace:
+#0 E:\www\share_down\trunk\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 E:\www\share_down\trunk\index.php(41): require('E:\www\share_do...')
+#2 {main}
+2014-09-03 23:09:32 Error: [MissingControllerException] Controller class AssetsController could not be found.
+Exception Attributes: array (
+  'class' => 'AssetsController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/assets/ico/favicon.ico
+Stack Trace:
+#0 E:\www\share_down\trunk\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 E:\www\share_down\trunk\index.php(41): require('E:\www\share_do...')
+#2 {main}
+2014-09-03 23:15:28 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'getUserId' at line 1
+Request URL: /index.php/Users/down
+Stack Trace:
+#0 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('getUserId', Array)
+#2 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(666): DboSource->execute('getUserId', Array, Array)
+#3 E:\www\share_down\trunk\lib\Cake\Model\Datasource\DboSource.php(609): DboSource->fetchAll('getUserId', Array, Array)
+#4 E:\www\share_down\trunk\lib\Cake\Model\Model.php(800): DboSource->query('getUserId', Array, Object(User))
+#5 E:\www\share_down\trunk\app\Controller\UsersController.php(201): Model->__call('getUserId', Array)
+#6 E:\www\share_down\trunk\app\Controller\UsersController.php(201): User->getUserId()
+#7 [internal function]: UsersController->down()
+#8 E:\www\share_down\trunk\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#9 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#11 E:\www\share_down\trunk\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 E:\www\share_down\trunk\index.php(41): require('E:\www\share_do...')
+#13 {main}
+2014-09-03 23:18:14 Error: [MissingActionException] Action VipsController::admin_assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'VipsController',
+  'action' => 'admin_assets',
+)
+Request URL: /index.php/admin/Vips/assets/ico/favicon.ico
+Stack Trace:
+#0 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(VipsController), Object(CakeRequest))
+#2 E:\www\share_down\trunk\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 E:\www\share_down\trunk\index.php(41): require('E:\www\share_do...')
+#4 {main}
+2014-09-03 23:27:33 Error: [MissingActionException] Action UsersController::admin_assets() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'admin_assets',
+)
+Request URL: /index.php/admin/Users/assets/ico/favicon.ico
+Stack Trace:
+#0 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 E:\www\share_down\trunk\lib\Cake\Routing\Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#2 E:\www\share_down\trunk\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 E:\www\share_down\trunk\index.php(41): require('E:\www\share_do...')
+#4 {main}
+2014-09-03 23:27:55 Error: [MissingControllerException] Controller class AdminController could not be found.
+Exception Attributes: array (
+  'class' => 'AdminController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/admin
+Stack Trace:
+#0 E:\www\share_down\trunk\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 E:\www\share_down\trunk\index.php(41): require('E:\www\share_do...')
+#2 {main}
+2014-09-03 23:27:58 Error: [MissingControllerException] Controller class AdminController could not be found.
+Exception Attributes: array (
+  'class' => 'AdminController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/admin
+Stack Trace:
+#0 E:\www\share_down\trunk\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 E:\www\share_down\trunk\index.php(41): require('E:\www\share_do...')
+#2 {main}
+2014-09-03 23:28:03 Error: [MissingControllerException] Controller class IndexController could not be found.
+Exception Attributes: array (
+  'class' => 'IndexController',
+  'plugin' => NULL,
+)
+Request URL: /index.php/admin/index
+Stack Trace:
+#0 E:\www\share_down\trunk\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 E:\www\share_down\trunk\index.php(41): require('E:\www\share_do...')
+#2 {main}

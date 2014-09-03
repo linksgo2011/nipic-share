@@ -47,4 +47,4 @@
         $(this).removeClass('active');
     });
 </script>
-<?php echo $this->element('pages'); ?>
+<?php echo $this->element('pages3'); ?>

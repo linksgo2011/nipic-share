@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>昵图网下载器</title>
+    <title>昵图网下载</title>
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -69,7 +69,7 @@
                     </li>
                     
                 </ul>
-                <a class="brand" href="/index.php/admin"><span class="first">Your</span> <span class="second">昵图网下载器管理面板</span></a>
+                <a class="brand" href="/index.php/admin/Users/inde"><span class="first">Your</span> <span class="second">昵图网下载管理面板</span></a>
                 <div class="learfix"></div>
             </div>
         </div>
@@ -103,7 +103,7 @@
         <footer>
             <hr>
             <!-- Purchase a site license to remove this link from the footer: http://www.portnine.com/bootstrap-themes -->
-            <p>&copy; 2013 <a href="/index.php/">昵图网下载器</a></p>
+            <p>&copy; 2013 <a href="/index.php/">昵图网下载</a></p>
         </footer>
         <!-- Le javascript
         ================================================== -->

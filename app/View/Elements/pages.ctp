@@ -13,11 +13,11 @@
 </style>
 <?php if (isset($this->Paginator)): ?>
 <div class="pagination">
-	<ul>
-	    <!--<span class="total"><?php /*echo $this->Paginator->counter(array('separator'=>'/'));*/ ?></span>-->
-	    <?php
-	    	echo $this->Paginator->numbers(array('separator' => '','tag'=>'li','currentClass'=>'active'));
-	    ?>
-	</ul>
+  <ul>
+      <!--<span class="total"><?php /*echo $this->Paginator->counter(array('separator'=>'/'));*/ ?></span>-->
+      <?php
+        echo $this->Paginator->numbers(array('separator' => '','tag'=>'li','currentClass'=>'active'));
+      ?>
+  </ul>
 </div>
 <?php endif; ?>

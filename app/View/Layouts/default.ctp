@@ -3,7 +3,7 @@
 	<head>
 		<?php echo $this->Html->charset(); ?>
 		<title>
-		昵图网下载器
+		昵图网下载
 		</title>
 		<?php echo $this->Html->css('bootstrap.min'); ?>
 		<?php echo $this->Html->css('main'); ?>
@@ -33,7 +33,7 @@
 		            <li><a href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'login')) ?>">登陆/注册</a></a></li>
 		            <?php endif ?>
 		        </ul>
-		        <h3 class="muted"><a href="/">昵图网下载器</a>
+		        <h3 class="muted"><a href="/">昵图网下载</a>
 					<span class="sub">首页</span>
 		        </h3>
 		    </div>
@@ -44,7 +44,7 @@
 			</div>
 		    <hr>
 		    <div class="footer">
-		        <p>© Company 2013</p>
+		        <!-- <p>© Company 2013</p> -->
 		    </div>
 		</div>
 		<?php echo $this->Html->script('shelp'); ?>

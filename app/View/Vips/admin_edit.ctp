@@ -1,5 +1,5 @@
 <div class="block span12">
-    <div class="block-heading" data-toggle="collapse" data-target="#tablewidget">网站设置</div>
+    <div class="block-heading" data-toggle="collapse" data-target="#tablewidget">VIP账号编辑</div>
     <div class="block-body collapse in">
         <p>
             <div class="alert">编辑</div>

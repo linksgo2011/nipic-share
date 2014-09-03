@@ -144,9 +144,13 @@ class UsersController extends AppController {
                 $this->UserAuth->login( $user );
                 $this->succ("登陆成功!");
                 $this->redirect(array('action'=>'home'));
+            }else{
+                $error = array();
+                $preg = '<span class="field-validation-error".*>([^"]*)</span>';
+                preg_match("/span class=\"field-validation-error\".*\>([^\"]*)\<\/span/",$content,$error);
+                $this->error('登录失败!错误原因为:'.$error[1]);
+                $this->redirect(array('action'=>'login'));
             }
-            echo $content;
-            $this->_stop();
         }
     }
 
@@ -167,7 +171,7 @@ class UsersController extends AppController {
 
 
     /**
-     * 是否昵图网登陆
+     * 是否昵图网下载登陆
      */
     public function isOtherLogin()
     {
@@ -192,8 +196,10 @@ class UsersController extends AppController {
             $this->error("先登录！");
             $this->redirect(array('controller'=>'Users','action'=>'login'));
         }
+
         $user = $this->UserAuth->getUser();
-        if ($user['number'] <= 0) {
+        $user_id = $this->UserAuth->getUserId();
+        if ($user['User']['number'] <= 0) {
             $this->error("账户余额不足!");
             $this->redirect(array('controller'=>'Users','action'=>'home'));
         }
@@ -244,6 +250,10 @@ class UsersController extends AppController {
                 $this->Vip->saveField('number',1);
                 $this->Vip->saveField('today',date('Y-m-d'));
             }
+            //更新用户个数
+            $this->User->updateAll(array('number'=>'number - 1'),array('User.id'=>$user_id));
+            $this->UserAuth->flashUser($user_id);
+
             $this->redirect($content['data']['url']);
         }else{
             $this->error("请求失败。错误信息:".$content['mes']);
@@ -270,7 +280,7 @@ class UsersController extends AppController {
         $this->request->data['Log'] = $query;
         $this->paginate = array(
             'conditions'=>$conditions,
-            'order'=>array('Log.id desc')
+            'order'=>array('Log.id desc'),
         );
         $data = $this->paginate("Log");
         $this->set('data',$data);
@@ -292,7 +302,7 @@ class UsersController extends AppController {
         $this->request->data['Log'] = $query;
         $this->paginate = array(
             'conditions'=>$conditions,
-            'order'=>array('Log.id desc')
+            'order'=>"Log.id desc"
         );
         $data = $this->paginate("Log");
         $this->set('data',$data);
