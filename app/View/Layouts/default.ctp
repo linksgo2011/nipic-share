@@ -20,23 +20,29 @@
 		.alert{color:#f60;background:#f1f1f1;border-radius:3px;}
 	</style>
 	<body>
+		<div class="top">
+		<div class="container" >
+			<div class="log">
+				<a href="/"><?php echo $this->Html->image("logo.png"); ?></a>
+			</div>
+		</div>
+		</div>
+		<div class="masthead">
+			<div class="container">
+			        <ul class="nav nav-pills pull-right">
+			            <li><a href="/">开始</a></li>
+			            <?php if ($user['email']): ?>
+			            <li><a href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'home')) ?>">个人中心</a></li>
+			            <li><a href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'logs')) ?>">下载记录</a></li>
+			            <li><a href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'password')) ?>">修改密码</a></li>
+			            <li><a href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'logout')) ?>">退出</a></a></li>
+			        <?php else: ?>
+			            <li><a href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'login')) ?>">登陆/注册</a></a></li>
+			            <?php endif ?>
+			        </ul>
+			</div>
+		</div>
 		<div class="container">
-		    <div class="masthead">
-		        <ul class="nav nav-pills pull-right">
-		            <li><a href="/">开始</a></li>
-		            <?php if ($user['email']): ?>
-		            <li><a href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'home')) ?>">个人中心</a></li>
-		            <li><a href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'logs')) ?>">下载记录</a></li>
-		            <li><a href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'password')) ?>">修改密码</a></li>
-		            <li><a href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'logout')) ?>">退出</a></a></li>
-		        <?php else: ?>
-		            <li><a href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'login')) ?>">登陆/注册</a></a></li>
-		            <?php endif ?>
-		        </ul>
-		        <h3 class="muted"><a href="/">昵图网下载</a>
-					<span class="sub">首页</span>
-		        </h3>
-		    </div>
 		    <hr>
 			<div id="content">
 		        <?php echo $this->Session->flash(); ?>

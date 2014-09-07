@@ -12,7 +12,7 @@
     </div>
     <div class="row">
         <h3>下载</h3>
-        <p class="bg-info">填写素材地址如:http://www.nipic.com/show/10845476.html</p>
+        <p class="bg-info">复制素材下载地址，:如 http://down.nipic.com/download?id=9161809#showMore 粘贴到下面的框下载即可!</p>
         <div class="col-md-12">
             <?php echo $this->Form->create("",array('class'=>'form-inline','role'=>'form','url'=>'/Users/down','target'=>'_blank')) ?>
               <div class="form-group">

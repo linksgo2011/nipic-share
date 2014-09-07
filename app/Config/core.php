@@ -98,6 +98,9 @@ if (!defined('APP_DEV')) {
  */
 	Configure::write('App.baseUrl', env('SCRIPT_NAME'));
 
+
+	Configure::write('App.base',"/");
+
 /**
  * Uncomment the define below to use CakePHP prefix routes.
  *
@@ -339,4 +342,3 @@ Cache::config('_cake_model_', array(
 
 if (!defined('APP_DEV') || !APP_DEV)
     Configure::write('Exception.handler', 'AppExceptionHandler::handleException');
-

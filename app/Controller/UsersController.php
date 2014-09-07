@@ -101,7 +101,6 @@ class UsersController extends AppController {
             if ($user['User']['role'] == 'admin') {
                 $this->UserAuth->login( $user );
                 $uri = $this->Session->read( UserAuthComponent::originAfterLogin );
-                $action = "/admin/Users/index";
                 if ( !$uri ) {
                     $uri = $action;
                 }
